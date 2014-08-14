@@ -12,7 +12,7 @@
   <h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %> One more step!</h3>
 	<%= link_to 'Fetch My Friends', fetch_friends_path, class: 'button-large fetch-friends center' %>
 <% elsif current_user %>
-  <h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %><%= current_user.name %>, here are your followers.</h3>
+  <h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %><%= current_user.name %>, here are your twitter friends.</h3>
 	<div class='map-container'>
 		<div id='map' ></div>
 	</div>
