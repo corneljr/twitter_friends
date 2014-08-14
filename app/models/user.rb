@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
 			user.avatar = auth["info"]["image"] || ''
 			user.oauth_token = auth["credentials"]["token"] || ''
 			user.oauth_secret = auth["credentials"]["secret"] || ''
+		end
 	end
 end
