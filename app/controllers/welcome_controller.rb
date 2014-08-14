@@ -11,5 +11,9 @@ class WelcomeController < ApplicationController
 	  end
 
 	  @friends = client.friends.take(20)
+
+	  @friends.each do |f|
+	  	Friend.get_friend_data(f, current_user.id)
+	  end
 	end
 end

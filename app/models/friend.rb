@@ -1,6 +1,6 @@
 class Friend < ActiveRecord::Base
 
-	def self.get_friend_data(friend, location_value, user_id)
+	def self.get_friend_data(friend, user_id)
 		self.where(
 			name: friend.name,
 			screen_name: friend.screen_name,
