@@ -12,8 +12,8 @@ class WelcomeController < ApplicationController
 
 	def fetch_friend_data
 	  client = Twitter::REST::Client.new do |config|
-	    config.consumer_key        = Figaro.env.twitter_consumer_key
-	    config.consumer_secret     = Figaro.env.twitter_consumer_secret
+	    config.consumer_key        = ENV['twitter_consumer_key']
+	    config.consumer_secret     = ENV['twitter_consumer_secret']
 	    config.access_token        = current_user.oauth_token
 	    config.access_token_secret = current_user.oauth_secret
 	  end
