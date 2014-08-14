@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
 	    config.access_token_secret = current_user.oauth_secret
 	  end
 
-	  @friends = client.friends.take(20)
+	  @friends = client.friends.take(50)
 
 	  @friends.each do |f|
 	  	location = f.location
