@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814124212) do
+ActiveRecord::Schema.define(version: 20140814133114) do
+
+  create_table "friends", force: true do |t|
+    t.string   "name"
+    t.string   "screen_name"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
