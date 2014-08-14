@@ -10,10 +10,14 @@ class WelcomeController < ApplicationController
 	    config.access_token_secret = current_user.oauth_secret
 	  end
 
-	  @friends = client.friends.take(100)
+	  @friends = client.friends.take(20)
 
 	  @friends.each do |f|
-	  	Friend.get_friend_data(f, current_user.id)
+	  	location = f.location
+	  	location_value = Geocoder.coordinates(location)
+	  	if location_value.present?
+	  		Friend.get_friend_data(f,location_value, current_user.id)
+	  	end
 	  end
 	  redirect_to root_path
 	end
