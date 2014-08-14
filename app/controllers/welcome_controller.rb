@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 			@markers = []
 	  	@friends = current_user.friends
 	  	@friends.each do |f|
-	  		marker_data = Friend.get_marker_data(f.screen_name, f.name)
+	  		marker_data = Friend.get_marker_data(f.screen_name, f.name, f.location)
 	  		@markers << [marker_data, f.latitude, f.longitude, f.avatar]
 	  	end
 	  end

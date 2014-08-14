@@ -1,6 +1,6 @@
 <% if current_user %>
-	<h3>Welcome <%= current_user.name %><%= image_tag current_user.avatar %></h3>
-	<p><%= link_to 'Sign out', signout_path, class: 'button-tiny sign-out' %></p>
+	<h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %><%= current_user.name %>, here are your followers.</h3>
+	<%= link_to 'Sign out', signout_path, class: 'button-tiny sign-out' %>
 <% else %>
 	<div class='welcome-container center'>
 		<h1 class='welcome'>Where in the World are Your Twitter Friends?</h1>
@@ -10,7 +10,7 @@
 <% end %>
 
 <% if current_user && current_user.friends.empty? %>
-	<%= link_to 'Fetch My Friends', fetch_friends_path, class: 'button-large' %>
+	<%= link_to 'Fetch My Friends', fetch_friends_path, class: 'button-large fetch-friends center' %>
 <% else %>
 	<div class='map-container'>
 		<div id='map' ></div>
@@ -18,23 +18,6 @@
 <% end %>
 
 <script>
-	var locations = <%= raw @markers %>;
-
-	var markers = []
-
-	for (var i = 0; i < locations.length; i++) {
-		markers.push({
-			'lat': locations[i][1],
-			'lng': locations[i][2],
-			 "picture": {
-	      "url": locations[i][3],
-	      "width":  36,
-	      "height": 36
-	    },
-	    'infowindow': locations[i][0]
-		});
-	}
-
 	var mapStyle = [
     {
       "featureType": "landscape",
@@ -153,6 +136,23 @@
       ]
     }
 	];
+
+	var locations = <%= raw @markers %>;
+
+	var markers = []
+
+	for (var i = 0; i < locations.length; i++) {
+		markers.push({
+			'lat': locations[i][1],
+			'lng': locations[i][2],
+			 "picture": {
+	      "url": locations[i][3],
+	      "width":  36,
+	      "height": 36
+	    },
+	    'infowindow': locations[i][0]
+		});
+	}
 
 	handler = Gmaps.build('Google');
 	handler.buildMap({internal: {id: 'map'}, provider: { styles: mapStyle }}, function(){

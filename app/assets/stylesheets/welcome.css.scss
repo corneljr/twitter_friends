@@ -34,6 +34,10 @@
 	}
 }
 
+.user-avatar {
+	margin-right: 10px;
+}
+
 .sign-out {
 	position: absolute;
 	top: 10px;
@@ -50,4 +54,13 @@
 #map {
 	width: 100%;
 	height: 100%;
+}
+
+.friend-info {
+	color: black;
+}
+
+.fetch-friends {
+	position: absolute;
+	left: 45%;
 }
