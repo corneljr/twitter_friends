@@ -30,6 +30,7 @@ gem 'omniauth-twitter', github: 'arunagw/omniauth-twitter'
 gem 'figaro'
 gem 'pry'
 gem 'twitter'
+gem 'geocoder'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

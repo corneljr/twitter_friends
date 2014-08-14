@@ -55,6 +55,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    geocoder (1.2.2)
     hashie (3.2.0)
     hike (1.2.3)
     http (0.6.1)
@@ -165,6 +166,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
