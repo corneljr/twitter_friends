@@ -1,5 +1,13 @@
 class WelcomeController < ApplicationController
 	def index
+		if current_user && current_user.friends.present?
+			@markers = []
+	  	@friends = current_user.friends
+	  	@friends.each do |f|
+	  		marker_data = Friend.get_marker_data(f.screen_name, f.name)
+	  		@markers << [marker_data, f.latitude, f.longitude, f.avatar]
+	  	end
+	  end
 	end
 
 	def fetch_friend_data
