@@ -7,8 +7,8 @@ class Friend < ActiveRecord::Base
 			avatar: friend.profile_image_url.to_s,
 			screen_name: friend.screen_name,
 			location: friend.location,
-			latitude: location_value.first,
-			longitude: location_value.second,
+			latitude: location_value.first + rand(0..0.05000),
+			longitude: location_value.second + rand(0..0.05000),
 			user_id: user_id
 			).find_or_create_by(user_id: user_id, screen_name: friend.screen_name)
 	end

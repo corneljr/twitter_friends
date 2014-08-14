@@ -1,5 +1,4 @@
 <% if current_user %>
-	<h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %><%= current_user.name %>, here are your followers.</h3>
 	<%= link_to 'Sign out', signout_path, class: 'button-tiny sign-out' %>
 <% else %>
 	<div class='welcome-container center'>
@@ -10,8 +9,10 @@
 <% end %>
 
 <% if current_user && current_user.friends.empty? %>
+  <h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %> One more step!</h3>
 	<%= link_to 'Fetch My Friends', fetch_friends_path, class: 'button-large fetch-friends center' %>
 <% else %>
+  <h3 class='user-message center'><%= image_tag current_user.avatar, class: 'user-avatar' %><%= current_user.name %>, here are your followers.</h3>
 	<div class='map-container'>
 		<div id='map' ></div>
 	</div>
