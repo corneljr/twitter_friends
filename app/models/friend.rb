@@ -4,6 +4,7 @@ class Friend < ActiveRecord::Base
 	def self.get_friend_data(friend, location_value, user_id)
 		self.create_with(
 			name: friend.name,
+			avatar: friend.profile_image_url.to_s,
 			screen_name: friend.screen_name,
 			location: friend.location,
 			latitude: location_value.first,

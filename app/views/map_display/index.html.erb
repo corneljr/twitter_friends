@@ -8,21 +8,23 @@
 	var markers = []
 
 	for (var i = 0; i < locations.length; i++) {
-		markers << {
+		markers.push({
 			'lat': locations[i][1],
 			'lng': locations[i][2],
 			 "picture": {
-	      "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+	      "url": locations[i][3],
 	      "width":  36,
 	      "height": 36
 	    },
 	    'infowindow': locations[i][0]
-		}
+		});
 	}
+
+
 
 	handler = Gmaps.build('Google');
 	handler.buildMap({provider: {}, internal: {id: 'map'}}, function(){
-		friendMarkers = handler.addMarkers([markers]);
+		friendMarkers = handler.addMarkers(markers);
 		handler.bound.extendWith(friendMarkers);
 		handler.fitMapToBounds();
 	});
