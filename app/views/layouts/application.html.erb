@@ -9,6 +9,7 @@
 <body>
 	<% if current_user %>
 		<p>Welcome <%= current_user.name %><%= image_tag current_user.avatar %></p>
+		<p><%= link_to 'Sign out', signout_path %></p>
 	<% else %>
 		<%= link_to 'Sign in with Twitter', '/auth/twitter' %>
 	<% end %>
