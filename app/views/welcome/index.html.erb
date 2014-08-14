@@ -1,17 +1,19 @@
 <% if current_user %>
 	<h3>Welcome <%= current_user.name %><%= image_tag current_user.avatar %></h3>
-	<p><%= link_to 'Sign out', signout_path %></p>
+	<p><%= link_to 'Sign out', signout_path, class: 'button-tiny sign-out' %></p>
 <% else %>
-	<h1 class='welcome'>Where in the World are Your Twitter Friends?</h1>
-	<h3>Sign in to Find out!</h3>
-	<%= link_to 'Sign in with Twitter', '/auth/twitter', class: 'button-large' %>
+	<div class='welcome-container center'>
+		<h1 class='welcome'>Where in the World are Your Twitter Friends?</h1>
+		<h3>Sign in to Find out!</h3>
+		<%= link_to 'Sign in with Twitter', '/auth/twitter', class: 'button-large' %>
+	</div>
 <% end %>
 
 <% if current_user && current_user.friends.empty? %>
 	<%= link_to 'Fetch My Friends', fetch_friends_path, class: 'button-large' %>
 <% else %>
-	<div style='width: 800px;'>
-		<div id='map' style='width: 800px; height: 400px;'></div>
+	<div class='map-container'>
+		<div id='map' ></div>
 	</div>
 <% end %>
 
