@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814133114) do
+ActiveRecord::Schema.define(version: 20140814142450) do
 
   create_table "friends", force: true do |t|
     t.string   "name"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20140814133114) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
