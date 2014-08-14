@@ -11,4 +11,8 @@ class Friend < ActiveRecord::Base
 			user_id: user_id
 			).find_or_create_by(user_id: user_id, screen_name: friend.screen_name)
 	end
+
+	def self.get_marker_data(screen_name, name)
+		"<strong>Twitter:</strong> #{screen_name}<br><strong>Name:</strong> #{name}"
+	end
 end
